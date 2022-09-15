@@ -55,18 +55,25 @@
                 </table>
                 <hr>
                 <h1>Code Snippets</h1>
-                <p>BlockQuote: </p>
-                <blockquote>Seperate First name & Last Name in HTML <a href="https://stackoverflow.com/questions/13637145/split-text-string-into-first-and-last-name-in-php">Visit Answer</a></blockquote>
+                <blockquote>Shuffle Children in HTML <a href="https://css-tricks.com/snippets/jquery/shuffle-children/">Visit Answer</a></blockquote>
         
             
                 <p>Code will look likes the following: </p>
                 <pre>
             
-                $name = "John S Smith";
-
-                list($fname, $lname) = split(' ', $name,2);
-                
-                echo "First Name: $fname, Last Name: $lname";
+                    $.fn.shuffleChildren = function() {
+                        $.each(this.get(), function(index, el) {
+                            var $el = $(el);
+                            var $find = $el.children();
+                    
+                            $find.sort(function() {
+                                return 0.5 - Math.random();
+                            });
+                    
+                            $el.empty();
+                            $find.appendTo($el);
+                        });
+                    };
             
                 </pre>
                 
